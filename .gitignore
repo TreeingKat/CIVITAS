@@ -1,0 +1,21 @@
+# Java / Maven
+backend/target/
+*.class
+*.log
+# Expo / Node
+frontend/node_modules/
+frontend/.expo/
+frontend/dist/
+frontend/web-build/
+frontend/.env
+backend/.env
+# Gradle
+.gradle/
+frontend/.gradle/
+frontend/expo_qr.png
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

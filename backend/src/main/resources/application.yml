@@ -1,0 +1,46 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: civitas-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/civitas}
+    username: ${DB_USERNAME:civitas}
+    password: ${DB_PASSWORD:civitas_dev_password}
+    driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: ${MAIL_SMTP_AUTH:false}
+      mail.smtp.starttls.enable: ${MAIL_SMTP_STARTTLS:false}
+server:
+  port: ${PORT:8080}
+app:
+  jwt:
+    secret: ${JWT_SECRET:local-development-secret-key-change-me-please-123456}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:120}
+  otp:
+    log-to-console: ${OTP_LOG_TO_CONSOLE:true}
+  bootstrap-admin:
+    email: ${CIVITAS_ADMIN_EMAIL:}
+    password: ${CIVITAS_ADMIN_PASSWORD:}
+    full-name: ${CIVITAS_ADMIN_FULL_NAME:CIVITAS Platform Administrator}
+civitas:
+  jwt:
+    secret: ${JWT_SECRET:local-development-secret-key-change-me-please-123456}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:60}
+  otp:
+    expiration-minutes: ${OTP_EXPIRATION_MINUTES:5}
+    expose-in-development: ${OTP_EXPOSE_IN_DEVELOPMENT:true}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://10.0.2.2:8080}
